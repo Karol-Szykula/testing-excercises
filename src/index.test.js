@@ -60,14 +60,14 @@ describe('Sum with quantity', () => {
 describe('Sum with shipping', () => {
     const orders = [
         {
-            name: 'Lager',
-            price: 10,
-            quantity: 100
-        },
-        {
             shipping: true,
             price: 25,
             freeShipping: 200
+        },
+        {
+            name: 'Lager',
+            price: 10,
+            quantity: 100
         }
     ]
 
