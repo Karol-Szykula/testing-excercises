@@ -16,3 +16,16 @@ const orderTotal = (arrayOfOrders) => {
 }
 
 console.log(orderTotal(orders))
+
+if (
+    orderTotal(orders) !== 25
+) {
+    throw new Error('Wrong value')
+}
+
+
+// try {
+//     throw new Error('Whoops!');
+//   } catch (e) {
+//     alert(e.name + ': ' + e.message);
+//   }
