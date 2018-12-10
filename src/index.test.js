@@ -56,3 +56,42 @@ describe('Sum with quantity', () => {
         ).toBe(0)
     })
 })
+
+describe('Sum with shipping', () => {
+    const orders = [
+        {
+            name: 'Lager',
+            price: 10,
+            quantity: 100
+        },
+        {
+            shipping: true,
+            price: 25,
+            freeShipping: 200
+        }
+    ]
+
+    test('Free shipping >= 200', () => {
+        expect(
+            orderTotal(orders)
+        ).toBe(1000)
+    })
+
+    const orders2 = [
+        {
+            name: 'Lager',
+            price: 10,
+            quantity: 2
+        },
+        {
+            shipping: true,
+            price: 25,
+            freeShipping: 200
+        }
+    ]
+    test('Paid shipping <= 200', () => {
+        expect(
+            orderTotal(orders2)
+        ).toBe(45)
+    })
+})
