@@ -10,9 +10,8 @@ const orders = [
 ]
 
 const orderTotal = (arrayOfOrders) => {
-
     return arrayOfOrders.reduce((reduced, item, index, array) => {
-        return reduced = reduced + item.price
+        return reduced += item.price
     }, 0)
 }
 
