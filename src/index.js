@@ -20,7 +20,13 @@ console.log(orderTotal(orders))
 if (
     orderTotal(orders) !== 25
 ) {
-    throw new Error('Wrong value')
+    throw new Error('Simple sum failed')
+}
+
+if (
+    orderTotal([]) !== 0
+) {
+    throw new Error('Simple sum failed')
 }
 
 
