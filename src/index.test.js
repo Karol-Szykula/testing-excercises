@@ -41,3 +41,14 @@ test('Fails to calculate sum with quantity', () => {
         orderTotal(ordersWithQuantity)
     ).toBe(35)
 })
+
+test('Fails to calculate sum with quantity equal 0', () => {
+    expect(
+        orderTotal([
+            {
+                name: 'Lager',
+                price: 10,
+                quantity: 0,
+            }])
+    ).toBe(0)
+})
