@@ -1,5 +1,5 @@
 export const orderTotal = (arrayOfOrders) => {
-    let sum = arrayOfOrders.reduce((reduced, item) => {
+    let preTotal = arrayOfOrders.reduce((reduced, item) => {
 
         if (item.quantity || item.quantity === 0) { reduced = reduced + (item.price * item.quantity) }
         else if (!item.quantity && !item.shipping) { reduced = reduced + item.price }
@@ -8,12 +8,24 @@ export const orderTotal = (arrayOfOrders) => {
 
     }, 0)
 
-    arrayOfOrders.forEach(item => {
-        if (item.shipping && item.freeShipping >= sum) {
+    // const shipping = arrayOfOrders.find((item => item.shipping))
 
-            sum += item.price
+    // return (
+    //     (
+    //         shipping &&
+    //         preTotal >= (shipping.freeShipping + shipping.price)
+    //     ) ?
+    //         preTotal - shipping.price
+    //         :
+    //         preTotal
+    // )
+
+    arrayOfOrders.forEach(item => {
+        if (item.shipping && item.freeShipping + item.price >= preTotal) {
+
+            preTotal += item.price
         }
     })
 
-    return sum
+    return preTotal
 }
