@@ -9,18 +9,18 @@ const orders = [
     }
 ]
 
-const orderTotal = (arrayOfOrders) => {
-    return arrayOfOrders.reduce((reduced, item, index, array) => {
-        return reduced += item.price
-    }, 0)
-}
+const orderTotal = (arrayOfOrders) => (
+    arrayOfOrders.reduce((reduced, item, index, array) => (
+        reduced += item.price
+    ), 0)
+)
 
 console.log(orderTotal(orders))
 
 if (
     orderTotal(orders) !== 25
 ) {
-    throw new Error('Simple sum failed')
+    throw new Error('Happy path failed')
 }
 
 if (
