@@ -26,7 +26,7 @@ if (
 if (
     orderTotal([]) !== 0
 ) {
-    throw new Error('Simple sum failed')
+    throw new Error('Empty order list must equals 0')
 }
 
 
